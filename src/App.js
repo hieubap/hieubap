@@ -66,10 +66,13 @@ function App() {
         // overflowY: "scroll",
         width: "100vw",
         height: "100vh",
-        paddingBottom: 30,
       }}
     >
-      <div>
+      <div
+        style={{
+          paddingBottom: 50,
+        }}
+      >
         <Header />
         {window.screen.width < window.screen.height ? (
           <div
@@ -89,8 +92,7 @@ function App() {
             onClick={onPlay}
           >
             <div className="third" style={{ lineHeight: "24px" }}>
-              Hãy xoay ngang điện thoại để có trải nghiệm tốt
-              nhất ={"))"}
+              Hãy xoay ngang điện thoại để có trải nghiệm tốt nhất ={"))"}
             </div>
           </div>
         ) : (
@@ -199,7 +201,7 @@ function App() {
                 position: "absolute",
                 left: 0,
                 right: 0,
-                bottom: 20,
+                bottom: "10vh",
                 display: "flex",
                 justifyContent: "center",
                 // alignItems: "center",
