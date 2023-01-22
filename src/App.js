@@ -53,34 +53,30 @@ function App() {
   };
   useEffect(() => {}, []);
   return (
-    <>
-      <Header />
-      <div
-        style={{ overflowX: "hidden", overflowY: "scroll", paddingBottom: 30 }}
-      >
+    <div
+      style={{
+        // overflowX: "hidden",
+        // overflowY: "scroll",
+        width: "100vw",
+        height: "100vh",
+        paddingBottom: 30,
+      }}
+    >
+      <div>
+        <Header />
         <audio id="audio-play" controls autoplay style={{ display: "none" }}>
           <source src={require("./happynewyear.mp3")} type="audio/mp3" />
         </audio>
         <div
-          className="main-img"
-          style={{
-            position: "absolute",
-            width: "100vw",
-            height: "100vh",
-            top: 0,
-            left: 0,
-            background: "rgba(0,0,0,0.6)",
-          }}
-        ></div>
-        <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
-            width: "100vw",
+            width: "100%",
             height: "100vh",
             display: "flex",
             justifyContent: "space-evenly",
+            overflow: "hidden",
           }}
         >
           {imgUrls.map((item, idx) => (
@@ -94,19 +90,20 @@ function App() {
         </div>
 
         <div
-          className="animate-img2 team-img"
           style={{
             position: "absolute",
             top: 0,
             left: 0,
-            width: "100vw",
+            width: "100%",
             height: "100vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            overflow: "hidden",
           }}
         >
           <img
+            className="animate-img2 team-img"
             style={{ height: "90vh" }}
             src={
               "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/326781107_583999273079539_3412055070270952852_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=Nr7pEYJxT9oAX_J5NcJ&tn=OZCTykEQKyDj7Tct&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDB--CDF8cY6Q4xabcBB0pxqPGL2SedbWykV9Ns-LTojQ&oe=63D33407"
@@ -188,7 +185,7 @@ function App() {
         />
       </div> */}
       </div>
-    </>
+    </div>
   );
 }
 
