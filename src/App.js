@@ -26,6 +26,7 @@ const bottomImg = [
 
 function App() {
   const onPlay = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     document.getElementById("audio-play").play();
     document.getElementById("click").style.display = "none";
     setTimeout(() => {
@@ -52,6 +53,8 @@ function App() {
     }, 10000);
   };
   useEffect(() => {}, []);
+  // window.scrollTo({ top: 0, behavior: 'smooth' });
+
   return (
     <div
       style={{
