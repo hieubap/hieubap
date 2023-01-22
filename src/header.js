@@ -2878,7 +2878,7 @@ const Header = (props) => {
             fontSize: 12,
           }}
         >
-          Sản phẩm được tài trợ bởi <b> HIẾU BẮP =))</b>{" "}
+          Sản phẩm được made by <b> HIẾU BẮP =))</b>{" "}
         </div>
       </div>
     </>

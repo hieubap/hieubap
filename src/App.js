@@ -88,7 +88,8 @@ function App() {
             onClick={onPlay}
           >
             <div className="third" style={{ lineHeight: "24px" }}>
-              Hãy xoay ngang điện thoại để có trải nghiệm tốt nhất ={"))"}
+              Hãy bật chế độ tự động xoay trên điện thoại và xoay ngang để bắt
+              đầu trải nghiệm ={"))"}
             </div>
           </div>
         ) : (
@@ -204,7 +205,7 @@ function App() {
               }}
               onClick={onPlay}
             >
-              <div className="third">click me to start</div>
+              <div className="third">Nhấn để bắt đầu</div>
             </div>
           </>
         )}
