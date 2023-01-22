@@ -4,6 +4,10 @@ import { useEffect } from "react";
 import { anime } from "react-anime";
 import Header from "./header";
 
+const timeStart = 1000;
+const time1 = 6000;
+const time2 = 2000;
+
 const imgUrls = [
   {
     url: "https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/326909974_564755435551358_3690601265951475452_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=tiXP_lVyDFAAX-AzxYA&_nc_ht=scontent.fhan14-2.fna&oh=00_AfC9Mt4_4_reLSJxfUIb-7VNrr6C5O-FxtlJbctoP3NR-w&oe=63D153AF",
@@ -29,28 +33,20 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
     document.getElementById("audio-play").play();
     document.getElementById("click").style.display = "none";
-    setTimeout(() => {
-      const imgs = document.getElementsByClassName("animate-img");
-      for (let i = 0; i < imgs.length; i++) {
-        setTimeout(() => {
-          imgs[i].className = "animate-img";
-        }, 2000 + i * 200);
-      }
-    }, 1000);
-
-    setTimeout(() => {
-      const imgs = document.getElementsByClassName("animate-img");
-      for (let i = 0; i < imgs.length; i++) {
+    const imgs = document.getElementsByClassName("animate-img");
+    for (let i = 0; i < imgs.length; i++) {
+      setTimeout(() => {
+        imgs[i].className = "animate-img";
         setTimeout(() => {
           imgs[i].className = "animate-img tran-" + i;
-        }, 5000 + i * 400);
-      }
-    }, 4000);
+        }, time1);
+      }, timeStart + i * 200);
+    }
 
     setTimeout(() => {
       const imgs = document.getElementsByClassName("animate-img2");
       imgs[0].className = "animate-img2";
-    }, 10000);
+    }, time1 + time2);
   };
   useEffect(() => {
     window.addEventListener("resize", () => {
