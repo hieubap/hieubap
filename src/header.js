@@ -59,7 +59,7 @@ const Header = (props) => {
             <div class="col-sm-12 col-md-12 mauto">
               <svg
                 width="100%"
-                height="100vh"
+                height="90vh"
                 viewBox="0 0 750 500"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2870,6 +2870,16 @@ const Header = (props) => {
             </div>
           </div>
         </a>
+        <div
+          style={{
+            textAlign: "center",
+            color: "white",
+            fontWeight: "200",
+            fontSize: 12,
+          }}
+        >
+          Sản phẩm được tài trợ bởi <b>HIẾU BẮP</b>{" "}
+        </div>
       </div>
     </>
   );

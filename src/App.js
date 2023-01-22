@@ -52,7 +52,11 @@ function App() {
       imgs[0].className = "animate-img2";
     }, 10000);
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      window.location.reload();
+    });
+  }, []);
   // window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
@@ -67,114 +71,146 @@ function App() {
     >
       <div>
         <Header />
-        <audio id="audio-play" controls autoplay style={{ display: "none" }}>
-          <source src={require("./happynewyear.mp3")} type="audio/mp3" />
-        </audio>
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100vh",
-            display: "flex",
-            justifyContent: "space-evenly",
-            overflow: "hidden",
-          }}
-        >
-          {imgUrls.map((item, idx) => (
-            <img
-              className={"animate-img tran-" + idx}
-              style={{ marginTop: "5vh", height: "90vh" }}
-              key={idx}
-              src={item.url}
-            />
-          ))}
-        </div>
+        {window.screen.width < window.screen.height ? (
+          <div
+            id="click"
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              display:
+                window.screen.width < window.screen.height ? "flex" : "none",
+              justifyContent: "center",
 
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            overflow: "hidden",
-          }}
-        >
-          <img
-            className="animate-img2 team-img"
-            style={{ height: "90vh" }}
-            src={
-              "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/326781107_583999273079539_3412055070270952852_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=Nr7pEYJxT9oAX_J5NcJ&tn=OZCTykEQKyDj7Tct&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDB--CDF8cY6Q4xabcBB0pxqPGL2SedbWykV9Ns-LTojQ&oe=63D33407"
-            }
-          />
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-          }}
-        >
-          {imgUrls.map((item, idx) => (
-            <img
-              style={{ marginTop: "5vh", height: "90vh" }}
-              key={idx}
-              src={item.url}
-            />
-          ))}
-        </div>
-        <div
-          style={{
-            marginTop: 20,
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            style={{ height: "90vh" }}
-            src={
-              "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/326781107_583999273079539_3412055070270952852_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=Nr7pEYJxT9oAX_J5NcJ&tn=OZCTykEQKyDj7Tct&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDB--CDF8cY6Q4xabcBB0pxqPGL2SedbWykV9Ns-LTojQ&oe=63D33407"
-            }
-          />
-        </div>
-        <div
-          style={{
-            marginTop: 20,
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            id="click-id"
-            style={{ height: "90vh" }}
-            src={
-              "https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/326988917_883321029372947_3717472668646509693_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=TkOu_A63oPQAX9xPQvI&tn=OZCTykEQKyDj7Tct&_nc_ht=scontent.fhan14-2.fna&oh=00_AfAwcTcOFtqN09IlR_LBl_UryWqU2YYX2xxcyjYCgMhQqA&oe=63D22746"
-            }
-            onClick={() => {
-              document.getElementById("audio-play").play();
+              // alignItems: "center",
             }}
-          />
-        </div>
-        <div
-          id="click"
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 20,
-            display: "flex",
-            justifyContent: "center",
-            // alignItems: "center",
-          }}
-          onClick={onPlay}
-        >
-          <div className="third">click me to start</div>
-        </div>
+            onClick={onPlay}
+          >
+            <div className="third" style={{ lineHeight: "24px" }}>
+              Hãy xoay ngang điện thoại để có trải nghiệm tốt
+              nhất ={"))"}
+            </div>
+          </div>
+        ) : (
+          <>
+            <audio
+              id="audio-play"
+              controls
+              autoplay
+              style={{ display: "none" }}
+            >
+              <source src={require("./happynewyear.mp3")} type="audio/mp3" />
+            </audio>
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100vh",
+                display: "flex",
+                justifyContent: "space-evenly",
+                overflow: "hidden",
+              }}
+            >
+              {imgUrls.map((item, idx) => (
+                <img
+                  className={"animate-img tran-" + idx}
+                  style={{ marginTop: "5vh", height: "90vh" }}
+                  key={idx}
+                  src={item.url}
+                />
+              ))}
+            </div>
+
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                className="animate-img2 team-img"
+                style={{ height: "90vh" }}
+                src={
+                  "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/326781107_583999273079539_3412055070270952852_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=Nr7pEYJxT9oAX_J5NcJ&tn=OZCTykEQKyDj7Tct&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDB--CDF8cY6Q4xabcBB0pxqPGL2SedbWykV9Ns-LTojQ&oe=63D33407"
+                }
+              />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+              }}
+            >
+              {imgUrls.map((item, idx) => (
+                <img
+                  style={{ marginTop: "5vh", height: "90vh" }}
+                  key={idx}
+                  src={item.url}
+                />
+              ))}
+            </div>
+            <div
+              style={{
+                marginTop: 20,
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                style={{ height: "90vh" }}
+                src={
+                  "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/326781107_583999273079539_3412055070270952852_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=Nr7pEYJxT9oAX_J5NcJ&tn=OZCTykEQKyDj7Tct&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDB--CDF8cY6Q4xabcBB0pxqPGL2SedbWykV9Ns-LTojQ&oe=63D33407"
+                }
+              />
+            </div>
+            <div
+              style={{
+                marginTop: 20,
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                id="click-id"
+                style={{ height: "90vh" }}
+                src={
+                  "https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/326988917_883321029372947_3717472668646509693_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=TkOu_A63oPQAX9xPQvI&tn=OZCTykEQKyDj7Tct&_nc_ht=scontent.fhan14-2.fna&oh=00_AfAwcTcOFtqN09IlR_LBl_UryWqU2YYX2xxcyjYCgMhQqA&oe=63D22746"
+                }
+                onClick={() => {
+                  document.getElementById("audio-play").play();
+                }}
+              />
+            </div>
+            <div
+              id="click"
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                bottom: 20,
+                display: "flex",
+                justifyContent: "center",
+                // alignItems: "center",
+              }}
+              onClick={onPlay}
+            >
+              <div className="third">click me to start</div>
+            </div>
+          </>
+        )}
+
         {/* <div
         style={{
           marginTop: 20,
