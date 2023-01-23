@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { anime } from "react-anime";
 import Header from "./header";
 
@@ -29,6 +29,9 @@ const bottomImg = [
 ];
 
 function App() {
+  const [postrait, setIsChange] = useState(
+    window.innerWidth < window.innerHeight
+  );
   const onPlay = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     document.getElementById("audio-play").play();
@@ -49,8 +52,14 @@ function App() {
     }, time1 + time2);
   };
   useEffect(() => {
+    let a = 0;
     window.addEventListener("resize", () => {
-      window.location.reload();
+      // document.getElementById("third").innerText =
+      //   window.innerWidth < window.innerHeight;
+      // setIsChange(window.innerWidth < window.innerHeight);
+      if (window.innerWidth < window.innerHeight !== postrait) {
+        window.location.reload();
+      }
     });
   }, []);
   // window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -70,7 +79,7 @@ function App() {
         }}
       >
         <Header />
-        {window.screen.width < window.screen.height ? (
+        {postrait ? (
           <div
             id="click"
             style={{
@@ -79,15 +88,14 @@ function App() {
               right: 0,
               top: 0,
               bottom: 0,
-              display:
-                window.screen.width < window.screen.height ? "flex" : "none",
+              display: "flex",
               justifyContent: "center",
 
               // alignItems: "center",
             }}
             onClick={onPlay}
           >
-            <div className="third" style={{ lineHeight: "24px" }}>
+            <div id="third" className="third" style={{ lineHeight: "24px" }}>
               Hãy bật chế độ tự động xoay trên điện thoại và xoay ngang để bắt
               đầu trải nghiệm ={"))"}
             </div>
